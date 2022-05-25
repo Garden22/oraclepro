@@ -59,7 +59,7 @@ public class PhoneApp {
 					
 					count = phoneDao.personUpdate(personId, new PersonVo(name, hp, company));
 					
-					check(count, "업데이트");
+					check(count, "수정");
 					break;
 					
 				case 4:
