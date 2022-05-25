@@ -91,8 +91,6 @@ public class PhoneApp {
 					break;
 			}
 		}
-		
-		
 		System.out.println();
 		System.out.println("**********************************************************");
 		System.out.println("*                        감사합니다                         *");
@@ -109,6 +107,7 @@ public class PhoneApp {
 			System.out.println("[정보가 " + str + "되지 않았습니다.]");
 		}
 	}
+
 	
 	public static void check(int count) {
 		if (count <= 0) {

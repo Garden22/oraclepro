@@ -19,7 +19,6 @@ public class PhoneDao {
 	private ResultSet rs = null;
 	
 	
-	
 	public int personInsert(PersonVo p) {
 		
 		int count = -1;
@@ -44,8 +43,6 @@ public class PhoneDao {
 	}
 	
 	
-	
-	
 	public int personDelete(int personId) {
 		
 		int count = -1;
@@ -66,9 +63,6 @@ public class PhoneDao {
 		close();
 		return count;
 	}
-	
-	
-	
 	
 	
 	public int personUpdate(int personId, PersonVo p) {
@@ -95,9 +89,6 @@ public class PhoneDao {
 		close();
 		return count;
 	}
-	
-	
-	
 	
 	
 	public int personSelect() {
@@ -134,10 +125,7 @@ public class PhoneDao {
 		
 	}
 	
-	
-	
-	
-	
+
 	public int personSelect(String find) {
 		
 		int count = 0;
@@ -177,8 +165,6 @@ public class PhoneDao {
 	}
 	
 
-	
-	
 	private void getConnection() {
 		try {
 			Class.forName(driver);
@@ -191,7 +177,6 @@ public class PhoneDao {
 			System.out.println("error:" + e);
 		}
 	}
-	
 	
 	
 	private void close() {
@@ -209,5 +194,4 @@ public class PhoneDao {
 			System.out.println("error:" + e);
 		}
 	}
-	
 }
