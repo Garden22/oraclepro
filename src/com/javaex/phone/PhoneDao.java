@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class PhoneDao {
@@ -102,9 +100,8 @@ public class PhoneDao {
 	
 	
 	
-	public List<PersonVo> personSelect() {
+	public void personSelect() {
 		
-		List<PersonVo> pList = new ArrayList<>();
 		int count = 0;
 
 		getConnection();
@@ -123,7 +120,6 @@ public class PhoneDao {
 				String company = rs.getString(4);
 				
 				PersonVo curr = new PersonVo(personID, name, hp, company);
-				pList.add(curr);
 				curr.print();
 				count++;
 			}
@@ -138,16 +134,14 @@ public class PhoneDao {
 			System.out.println("[조회된 정보가 없습니다.]");
 		}
 		
-		return pList;
 	}
 	
 	
 	
 	
 	
-	public List<PersonVo> personSelect(String find) {
+	public void personSelect(String find) {
 		
-		List<PersonVo> pList = new ArrayList<>();
 		int count = 0;
 
 		getConnection();
@@ -171,7 +165,6 @@ public class PhoneDao {
 				String company = rs.getString(4);
 				
 				PersonVo curr = new PersonVo(personID, name, hp, company);
-				pList.add(curr);
 				curr.print();
 				count++;
 			}
@@ -184,9 +177,7 @@ public class PhoneDao {
 		
 		if (count == 0) {
 			System.out.println("[조회된 정보가 없습니다.]");
-		}
-		
-		return pList;
+		}		
 	}
 	
 
