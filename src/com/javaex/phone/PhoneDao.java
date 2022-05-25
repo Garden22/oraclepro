@@ -100,7 +100,7 @@ public class PhoneDao {
 	
 	
 	
-	public void personSelect() {
+	public int personSelect() {
 		
 		int count = 0;
 
@@ -130,9 +130,7 @@ public class PhoneDao {
 		
 		close();
 		
-		if (count == 0) {
-			System.out.println("[조회된 정보가 없습니다.]");
-		}
+		return count;
 		
 	}
 	
@@ -140,7 +138,7 @@ public class PhoneDao {
 	
 	
 	
-	public void personSelect(String find) {
+	public int personSelect(String find) {
 		
 		int count = 0;
 
@@ -175,9 +173,7 @@ public class PhoneDao {
 		
 		close();
 		
-		if (count == 0) {
-			System.out.println("[조회된 정보가 없습니다.]");
-		}		
+		return count;
 	}
 	
 

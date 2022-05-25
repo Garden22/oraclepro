@@ -27,7 +27,8 @@ public class PhoneApp {
 			switch (num) {
 				case 1:
 					System.out.println("<1. 리스트>");
-					phoneDao.personSelect();
+					int count = phoneDao.personSelect();
+					check(count);
 					break;
 					
 				case 2:
@@ -40,7 +41,7 @@ public class PhoneApp {
 					System.out.print("> 회사전화: ");
 					String company = sc.next();	
 					
-					int count = phoneDao.personInsert(new PersonVo(name, hp, company));
+					count = phoneDao.personInsert(new PersonVo(name, hp, company));
 					
 					check(count, "등록");
 					break;
@@ -77,7 +78,8 @@ public class PhoneApp {
 					System.out.print("> 검색어: ");
 					String search = sc.next();	
 
-					phoneDao.personSelect(search);
+					count = phoneDao.personSelect(search);
+					check(count);
 					break;
 					
 				case 6:
@@ -105,6 +107,12 @@ public class PhoneApp {
 			System.out.println("[" + count + "건 " + str + "되었습니다.]");
 		} else {
 			System.out.println("[정보가 " + str + "되지 않았습니다.]");
+		}
+	}
+	
+	public static void check(int count) {
+		if (count <= 0) {
+			System.out.println("[정보가 조회되지 않았습니다.]");
 		}
 	}
 }
