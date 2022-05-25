@@ -27,7 +27,7 @@ public class PhoneApp {
 			switch (num) {
 				case 1:
 					System.out.println("<1. 리스트>");
-					phoneDao.PersonSelect();
+					phoneDao.personSelect();
 					break;
 					
 				case 2:
@@ -40,7 +40,7 @@ public class PhoneApp {
 					System.out.print("> 회사전화: ");
 					String company = sc.next();	
 					
-					int count = phoneDao.PersonInsert(new PersonVo(name, hp, company));
+					int count = phoneDao.personInsert(new PersonVo(name, hp, company));
 					
 					check(count, "등록");
 					break;
@@ -57,7 +57,7 @@ public class PhoneApp {
 					System.out.print("> 회사전화: ");
 					company = sc.next();	
 					
-					count = phoneDao.PersonUpdate(personId, new PersonVo(name, hp, company));
+					count = phoneDao.personUpdate(personId, new PersonVo(name, hp, company));
 					
 					check(count, "업데이트");
 					break;
@@ -67,7 +67,7 @@ public class PhoneApp {
 					System.out.print("> 번호: ");
 					int no = sc.nextInt();
 					
-					count = phoneDao.PersonDelete(no);
+					count = phoneDao.personDelete(no);
 					
 					check(count, "삭제");
 					break;
@@ -76,8 +76,8 @@ public class PhoneApp {
 					System.out.println("<5. 검색>");
 					System.out.print("> 검색어: ");
 					String search = sc.next();	
-					
-					phoneDao.PersonSearch(search);
+
+					phoneDao.personSelect(search);
 					break;
 					
 				case 6:
