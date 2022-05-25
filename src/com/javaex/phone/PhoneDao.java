@@ -23,6 +23,7 @@ public class PhoneDao {
 	
 	
 	public int personInsert(PersonVo p) {
+		
 		int count = -1;
 		getConnection();
 		
@@ -39,9 +40,12 @@ public class PhoneDao {
 		} catch (SQLException e) {
 			System.out.println("errer: " + e);
 		}
+		
 		close();
 		return count;
 	}
+	
+	
 	
 	
 	public int personDelete(int personId) {
@@ -66,6 +70,9 @@ public class PhoneDao {
 	}
 	
 	
+	
+	
+	
 	public int personUpdate(int personId, PersonVo p) {
 
 		int count = -1;
@@ -75,30 +82,35 @@ public class PhoneDao {
 			String query = "update person\nset name = ?, hp = ?, company = ?\nwhere person_id = ?";
 						
 			pstmt = conn.prepareStatement(query); 
+			
 			pstmt.setString(1, p.getName());
 			pstmt.setString(2, p.getHp());
 			pstmt.setString(3, p.getCompany());
 			pstmt.setInt(4, personId);
 			
 			count = pstmt.executeUpdate();
-			
-			System.out.println(count + "건이 등록되었습니다.");
-		
+					
 		} catch (SQLException e) {
 			System.out.println("errer: " + e);
 		}
+		
 		close();
 		return count;
 	}
 	
 	
+	
+	
+	
 	public List<PersonVo> personSelect() {
+		
 		List<PersonVo> pList = new ArrayList<>();
-		getConnection();
 		int count = 0;
+
+		getConnection();
 		
 		try {
-			String query = "select person_id, name, hp, company\nfrom person "; 
+			String query = "select person_id, name, hp, company\nfrom person\norder by person_id asc "; 
 			
 			pstmt = conn.prepareStatement(query); 
 		
@@ -114,28 +126,34 @@ public class PhoneDao {
 				pList.add(curr);
 				curr.print();
 				count++;
-				
 			}
 		
 		} catch (SQLException e) {
 			System.out.println("errer: " + e);
 		}	
+		
 		close();
 		
 		if (count == 0) {
 			System.out.println("[조회된 정보가 없습니다.]");
 		}
+		
 		return pList;
 	}
 	
 	
+	
+	
+	
 	public List<PersonVo> personSelect(String find) {
-		int count = 0;
+		
 		List<PersonVo> pList = new ArrayList<>();
+		int count = 0;
+
 		getConnection();
 		
 		try {
-			String query = "select person_id, name, hp, company\nfrom person\nwhere name like ? or hp like ? or company like ? "; 
+			String query = "select person_id, name, hp, company\nfrom person\nwhere name like ? or hp like ? or company like ?\norder by person_id asc "; 
 			
 			pstmt = conn.prepareStatement(query); 
 			
@@ -156,12 +174,12 @@ public class PhoneDao {
 				pList.add(curr);
 				curr.print();
 				count++;
-				
 			}
 		
 		} catch (SQLException e) {
 			System.out.println("errer: " + e);
 		}	
+		
 		close();
 		
 		if (count == 0) {
